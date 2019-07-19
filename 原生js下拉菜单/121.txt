@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="plugin/beauty.css">
+</head>
+
+<body>
+    <form action="" method="GET">
+        <select id="test1" name="test1" data-beauty>
+            <option value="1">fgfgdsfsdfs.</option>
+            <option value="2">Dignissimos?</option>
+            <option value="3">Quis.</option>
+            <option value="4">Nulla!</option>
+            <option value="5">Repellat!</option>
+            <option value="6">Nemo.</option>
+            <option value="7">Blanditiis?</option>
+            <option value="8">Perferendis.</option>
+            <option value="9">Necessitatibus?</option>
+            <option value="10">Aperiam?</option>
+        </select>
+
+        <select name="test2" data-beauty>
+            <option value="1">Lorem.</option>
+            <option value="2">Dignissimos?</option>
+            <option value="3">Quis.</option>
+            <option value="4">Nulla!</option>
+            <option value="5">Repellat!</option>
+            <option value="6">Nemo.</option>
+            <option value="7">Blanditiis?</option>
+            <option value="8">Perferendis.</option>
+            <option value="9">Necessitatibus?</option>
+            <option value="10">Aperiam?</option>
+        </select>
+
+        <p>
+            <button>提交</button>
+
+            <button type="button" id="btntest1">设置第一个下拉列表的值为4</button>
+        </p>
+    </form>
+
+
+    <script src="./plugin/beauty.js"></script>
+    <script>
+        document.getElementById("btntest1").onclick = function(){
+            var sel = document.getElementById("test1");
+            setSelectVal(sel, "4");
+        }
+    </script>
+</body>
+ 
+</html>

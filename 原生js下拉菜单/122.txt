@@ -1,0 +1,84 @@
+@import "https://at.alicdn.com/t/font_1228231_h2vbzgqj75d.css";
+
+.beauty-select {
+    width: 260px;
+    display: inline-block;
+    height: 40px;
+    color: #606266;
+    position: relative;
+}
+
+.beauty-select .beauty-value {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    text-align: center;
+    line-height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+}
+
+.beauty-select .beauty-value .iconfont {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    transition: .3s;
+}
+
+.expand.beauty-select .beauty-value .iconfont {
+    transform: rotateZ(-180deg);
+}
+
+/* 展开样式 */
+.expand .beauty-options {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.beauty-options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+    padding: 10px 0;
+    line-height: 2.2;
+    max-height: 200px;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 55px;
+    width: 100%;
+    transition: .3s;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: center top;
+    background: #fff;
+}
+
+.beauty-options li {
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 20px;
+}
+
+.beauty-options li:hover {
+    background: #e0edff;
+}
+
+.beauty-options li.active {
+    color: #409eff;
+    font-weight: bold;
+}
