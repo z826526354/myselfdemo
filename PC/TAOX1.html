@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/TAOX1.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="topNav">
+			<span class="stop">x</span>
+			<span class="saveMoney">就是帮你省</span>
+			<span class="more">...</span>
+		</div>
+		<div class="backImg"></div>
+		<div class="nav">
+			<ul class="lider">
+				<li class="iconImg icon1">
+				</li>
+				<span class="house">有房100万</span>
+				<li class="iconImg icon2">
+				</li>
+				<span class="houseM">有担保有公积金10万</span>
+				<li class="iconImg icon3">
+				</li>
+				<span class="car">有车50万</span>
+				<li class="iconImg icon4">
+				</li>
+				<span class="houseC">有房有车300万</span>
+			</ul>
+			<div class="input">
+				<div class="phone">
+					<span class="word">手机号码</span>
+					<input type="text" placeholder="输入手机号">
+				</div>
+				<div class="codeImg">
+					<span class="word">图形验证码</span>
+					<input type="text" placeholder="输入图形验证码">
+					<span>|</span>
+					<a href="#"></a>
+				</div>
+				<div class="code">
+					<span class="word">验证码</span>
+					<input type="text" placeholder="输入验证码">
+					<span>|</span>
+					<span class="getCode">获取验证码</span>
+				</div>
+				<form method="get" action="#">
+					<input class="agree" type="radio" name="agree" value="同意" checked="checked">我已阅读并同意《LALALA理财金融条款》
+				</form>
+				<i class="loading">
+					<a href="#">
+						立即登入
+					</a>
+				</i>
+			</div>
+			
+			
+			
+		</div>
+	</div>
+	<script src="./jquery-3.3.1.js"></script>
+	<script>
+	document.querySelector('.wrapper').addEventListener('touchmove', stopScroll, false);
+	//移除禁止滚动事件监听
+	document.querySelector('.wrapper').removeEventListener('touchmove', stopScroll, false);
+	//禁止默认行为方法
+	function stopScroll(e) {
+		e.preventDefault()
+	}
+	</script>
+</body>
+</html>

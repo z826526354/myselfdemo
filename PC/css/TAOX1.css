@@ -1,0 +1,240 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+	text-decoration: none;
+	list-style: none;
+}
+body{
+	width: 100vw;
+	height:100vh;
+}
+.wrapper{
+	position: relative;
+	width: 100vw;
+	height: 100vh; 
+	margin:auto;
+	overflow: hidden;
+}
+.wrapper .backImg{
+	position:absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-size: 100% 117%;
+	background-image: url('../img/background.png');
+}
+.wrapper .topNav{
+	position:absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	height: 45px;
+	background-color: #f2f2f2;
+}
+.wrapper .topNav .stop{
+	display: inline-block;
+	line-height: 45px;
+	height: 45px;
+	font-size: 30px;
+	padding-right: 50px;
+	padding-left: 15px;
+}
+.wrapper .topNav .saveMoney{
+	display: inline-block;
+	font-size: 16px; 
+	margin: 0 30px;
+}
+.wrapper .topNav .more{
+	float: right;
+	display: block;
+	font-size: 30px;
+	line-height: 45px;
+	height: 45px;
+	font-weight: border;
+	margin-right: 30px;
+	margin-top: -5px;
+}
+.wrapper .nav{
+	position: absolute;
+	bottom: 110px;
+	left: 0;
+	overflow: hidden;
+	/*border: 1px solid red;*/
+	width: 100%;
+	height: 37vh;
+}
+
+
+
+
+.wrapper .nav .lider{
+	height: 46px;
+	width: 100%;
+	/*border: 1px solid green;*/
+}
+.wrapper .nav .lider .iconImg{
+	float: left;
+	display: inline-block;
+	height: 40px;
+	width: 45px;
+	/*border: 1px solid green;*/
+	margin-left: 9vw;
+	margin-right: 3vw
+}
+
+.wrapper .nav .lider span{
+	display: block;
+	font-size: 10px;
+	color:#c89e62;
+	width: 85px;
+	height: 16px;
+	text-align: center;
+}
+.wrapper .nav .lider .icon1{
+	background-image: url('../img/icon.png');
+	background-position: -12px -13px;
+	background-size: 500% 130%;
+}
+.wrapper .nav .lider .icon2{
+	background-image: url('../img/icon.png');
+	background-position: -76px -13px;
+	background-size: 560% 130%;
+
+}
+.wrapper .nav .lider .icon3{
+	background-image: url('../img/icon.png');
+	background-position: 118px -13px;
+	background-size: 560% 130%;
+}
+.wrapper .nav .lider .icon4{
+	background-image: url('../img/icon.png');
+	background-position: 60px -13px;
+	background-size: 560% 130%;
+}
+
+
+.wrapper .nav .lider .house{
+	position: absolute;
+	top:22px;
+	left:3vw;
+}
+.wrapper .nav .lider .houseM{
+	position: absolute;
+	top:22px;
+	left:27vw;
+}
+.wrapper .nav .lider .car{
+	position: absolute;
+	top:22px;
+	right: 26vw;
+}
+.wrapper .nav .lider .houseC{
+	position: absolute;
+	top:22px;
+	right:0;
+}
+
+
+
+
+
+.wrapper .nav .input{
+	width: 100%;
+	height: 180px;
+	/*border: 1px solid red;*/
+}
+.wrapper .nav .input div{
+	background: #fff;
+	border-radius: 3px;
+	width: 260px;
+	height: 25px;
+	margin: 8px auto;
+}
+.wrapper .nav .input span{
+	font-size: 16px;
+	color:#aaa;
+}
+.wrapper .nav .input .word{
+	font-size: 12px;
+	color:#856b39;
+	margin-left: 7px;
+	margin-right: 10px;
+}
+.wrapper .nav .input .codeImg a{
+	display: inline-block;
+	height: 25px;
+	width: 60px;
+	vertical-align: -9px;
+	line-height: 90px;
+	background-image: url('../img/yanzheng.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: 2px -1px;
+}
+.wrapper .nav .input input{
+	width: 120px;
+	height: 25px;
+	line-height: 26px;
+	font-size: 12px;
+	border: none;
+	outline: none;
+	text-indent: 5px;
+
+}
+.wrapper .nav .input .phone{
+	margin-top: 10px;
+}
+.wrapper .nav .input .phone input{
+	width: 100px;
+	margin-left: 5px;
+}
+.wrapper .nav .input .codeImg input{
+	width: 100px;
+	margin-left: -7px;
+}
+.nav .input .code input{
+	width: 101px;
+	margin-left: 16px;
+}
+.wrapper .nav .input .code .getCode{
+	font-size: 14px;
+	color: #856b39;
+}
+.wrapper .nav .loading{
+	display: block;
+	width: 260px;
+	margin: 0 auto;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 4px;
+	font-style: normal;
+}
+.wrapper .nav .loading a{
+	display: inline-block;
+	color: #000;
+	font-size: 12px;
+	line-height: 30px;
+	text-align: center;
+	width: 260px;
+	height: 30px;
+	background: url('../img/loading.png');
+	background-size: 100% 100%;
+	margin-top: 3vh
+}
+.wrapper .nav .input form{
+	width: 83vw;
+	margin: 0 auto;
+	font-size: 12px;
+	color:#8c6e44;
+	margin-top: 3vh;
+}
+.wrapper .nav .input form .agree{
+	width: 14px;
+	height: 14px;
+	margin-top: -3px;
+	margin-left: 25px;
+	vertical-align: -3px;
+}
