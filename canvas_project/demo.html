@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: '微软雅黑';
+        }
+        /*body{
+            background-color: #000;
+        }*/
+        .test{
+            position: relative;
+            /*margin: 0 auto;*/
+            width: 300px;
+            height: 600px;
+            background-color: #f40;
+            transition: all 0.5s;
+        }
+        .test:hover{
+            box-shadow: 0px 0px 30px rgba(0, 129, 255, 0.7);
+        }
+        .test .img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .test .border{
+            position: relative;
+            top: 14px;
+            width: 280px;
+            height: 570px;
+            border: 2px solid green;
+            margin: 0 auto;
+        }
+        .test .border p{
+            position: absolute;
+            bottom: 110px;
+            right: 5px;
+        }
+        .test .border .hjtImg{
+            width: 100px;
+            height: 100px;
+            background-image: url('./img/hdImg_c4accaae27ff86065a38d34c850a7c7715668871600.png');
+            background-size: 100%;
+        }
+        .test .border span{
+            color: #000;
+            font-size: 30px;
+        }
+        .test .border span.change{
+            color: #FF5093;
+        }
+        button{
+            position: absolute;
+            border: none;
+            width: 120px;
+            height: 35px;
+            line-height: 35px;
+            background-color: #fff;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            transition: all 0.4s;
+            outline: 0px;
+        }
+        button.numberChange{
+            right: 40%;
+            top: 35%;
+        }
+        button.one{
+            top: 50%;
+            right: 40%;
+        }
+        button.showImg{
+            right: 40%;
+            top: 20%;
+        }
+        button:hover{
+            cursor: pointer;
+            box-shadow: 0px 0px 20px rgba(0, 129, 255, 0.7); 
+        }
+
+        canvas {
+            margin-right: 5px;
+        }
+ 
+        .dL{
+            position: absolute;
+            right: 40%;
+            top: 65%;
+            width: 120px;
+            height: 35px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 35px;
+            border: 1px solid #aaa;
+            transition: all 0.4s;
+        }
+        .dL:hover{
+            box-shadow: 0px 0px 20px rgba(0, 129, 255, 0.7);
+        }
+
+/*        .dl2{
+            bottom: 30%;
+        }*/
+        .dL a.down{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            color: #2a2a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <img class="img" src="./img/QQ截图20190824151927.png" alt="">
+        <div class="border">
+            <div class="hjtImg" style="position: absolute;top: 310px;left: 16px;"></div>
+            <p>
+                <span>NO.YZ1908</span>
+                <span class="change">1</span>
+            </p>
+        </div>
+        
+    </div>
+
+    <div class="dL dl1">
+        <a class="down" href="" download="downImg">下载</a>
+    </div>
+    <!-- <div class="dL dl2">
+        <a class="down2" href="" download="downImg">下载2</a>
+    </div> -->
+    <button class="numberChange">点我改变号码</button>
+    <button class="one">点我回到1</button>
+    <button class="showImg">隐藏logo</button>
+
+    <!-- <script type="text/javascript" src="./js/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/html2canvas.min.js"></script>
+    <script>
+        var numberChange = document.getElementsByClassName('numberChange')[0];
+        var one = document.getElementsByClassName('one')[0]
+        var change = document.getElementsByClassName('change')[0];
+        var showImg = document.getElementsByClassName('showImg')[0];
+        var hjtImg = document.getElementsByClassName('hjtImg')[0];
+        var dL = document.getElementsByClassName('dL')[0];
+        var count = 0;
+        drag(hjtImg);
+        function addEvent(ele, type, handle) {
+            if (ele.addEventListener) {
+                ele.addEventListener(type, handle, false);
+            }else if (ele.attachEvent) {
+                ele.attachEvent('on' + type, function(){
+                    handle.call(ele)
+                })
+            }else {
+                ele['on' + type] = handle;
+            }
+        }
+        if (localStorage.left) {
+            hjtImg.style.left = parseInt(localStorage.left) + 'px';
+            hjtImg.style.top = parseInt(localStorage.top) + 'px';
+            console.log(123)
+        }
+        
+        addEvent( showImg ,'click', function () {
+            count ++;
+            if (count % 2 == 1) {
+                hjtImg.style.display = 'none';
+                this.innerText = '显示logo'
+            }else {
+                hjtImg.style.display = 'inline-block';
+                this.innerText = '隐藏logo'
+                
+            }
+        })
+
+        if (localStorage.name) {
+            change.innerText = parseInt(JSON.parse(localStorage.name)) ;
+        }else {
+            change.innerText = 1;
+        }
+
+        function changeSty(dom) {
+            dom.style.transform = 'scale(0.97)';
+            document.onmouseup = function () {
+                dom.style.transform = 'scale(1)';
+            }
+        }
+        numberChange.onmousedown = function () {
+            changeSty(this);
+        }
+        showImg.onmousedown = function () {
+            changeSty(this);
+        }
+        one.onmousedown = function () {
+            changeSty(this);
+        }
+        dL.onmousedown = function () {
+            changeSty(this);
+        }
+        addEvent(numberChange, 'click', function () {
+            if (!localStorage.info) {
+                var num = parseInt(change.innerText);
+            }else {
+                var num = parseInt(localStorage.name); 
+
+            }
+            num += 1;
+            change.innerText = num;
+
+            localStorage.name = num;
+            localStorage.info = JSON.stringify({name:num,company:'yezi'})
+        })
+        addEvent(one, 'click', function () {
+            localStorage.name = 1;
+            localStorage.info = JSON.stringify({name:1,company:'yezi'})
+            change.innerText = parseInt(localStorage.name);
+        })
+
+        
+        function drag(dom) {
+            var e = e || window.event;
+            var disX,
+                disY;
+            dom.onmousedown = function (e) {
+                disX = e.pageX - parseInt(dom.style.left);
+                disY = e.pageY - parseInt(dom.style.top);
+                document.onmousemove = function (e) {
+                    dom.style.left = e.pageX - disX + 'px';
+                    dom.style.top = e.pageY - disY + 'px';
+                }
+                dom.onmouseup = function () {
+                    document.onmousemove = null;
+                    localStorage.left = dom.style.left;
+                    localStorage.top = dom.style.top;
+                    localStorage.size = JSON.stringify({left: dom.style.left, top: dom.style.top,demo: "yezi"})
+                }
+                
+            }
+            
+        }
+        
+    </script>
+    <script>
+        var canvas2 = document.createElement("canvas");
+        let _canvas = document.querySelector('.test');
+        var w = parseInt(window.getComputedStyle(_canvas).width);
+        var h = parseInt(window.getComputedStyle(_canvas).height);
+        //将canvas画布放大若干倍，然后盛放在较小的容器内，就显得不模糊了
+        canvas2.width = w * 2;
+        canvas2.height = h * 2;
+        canvas2.style.width = w + "px";
+        canvas2.style.height = h + "px";
+        //可以按照自己的需求，对context的参数修改,translate指的是偏移量
+        //  var context = canvas.getContext("2d");
+        //  context.translate(0,0);
+        var context = canvas2.getContext("2d");
+        context.scale(2, 2);
+        html2canvas(document.querySelector('.test'), { canvas: canvas2 }).then(function(canvas) {
+            //document.body.appendChild(canvas);
+            //canvas转换成url，然后利用a标签的download属性，直接下载，绕过上传服务器再下载
+            document.querySelector(".down").setAttribute('href', canvas.toDataURL());
+        });
+    </script>
+    <!-- <script language="javascript">
+         //这是另一种写法
+        $(function () {
+            $(".down2").click(function () {
+                html2canvas($(".test")).then(function (canvas) {
+                    var imgUri = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); // 获取生成的图片的url
+                    window.location.href = imgUri; // 下载图片
+                });
+     
+     
+                //html2canvas($('.tongxingzheng_bg'), {
+                //    onrendered: function (canvas) {
+                //        var data = canvas.toDataURL("image/png");//生成的格式
+                //        //data就是生成的base64码啦
+                //        alert(data);
+                //    }
+                //});
+            });
+        });
+    </script> -->
+</body>
+</html>
