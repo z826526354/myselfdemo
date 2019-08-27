@@ -15,10 +15,10 @@
             background-color: #000;
         }*/
         .test{
-            position: relative;
+            position: absolute;
             /*margin: 0 auto;*/
             width: 300px;
-            height: 600px;
+            height: 550px;
             background-color: #f40;
             transition: all 0.5s;
         }
@@ -34,7 +34,7 @@
             position: relative;
             top: 14px;
             width: 280px;
-            height: 570px;
+            height: 520px;
             border: 2px solid green;
             margin: 0 auto;
         }
@@ -68,17 +68,17 @@
             transition: all 0.4s;
             outline: 0px;
         }
-        button.numberChange{
-            right: 40%;
-            top: 35%;
+        .numberChange{
+            bottom: 50vh;
+            left: 50vw;
         }
-        button.one{
-            top: 50%;
-            right: 40%;
+        .one{
+            bottom: 40vh;
+            left: 50vw;
         }
-        button.showImg{
-            right: 40%;
-            top: 20%;
+        .showImg{
+            bottom: 30vh;
+            left: 50vw;
         }
         button:hover{
             cursor: pointer;
@@ -91,15 +91,16 @@
  
         .dL{
             position: absolute;
-            right: 40%;
-            top: 65%;
-            width: 120px;
+            left: 50vw;
+            bottom: 20vh;
+            width: 118px;
             height: 35px;
             border-radius: 5px;
             text-align: center;
             line-height: 35px;
             border: 1px solid #aaa;
             transition: all 0.4s;
+            background-color: #fff;
         }
         .dL:hover{
             box-shadow: 0px 0px 20px rgba(0, 129, 255, 0.7);
@@ -113,11 +114,40 @@
             width: 100%;
             height: 100%;
             color: #2a2a2a;
+
         }
         h4{
             position: absolute;
             bottom: 50px;
-            left: 50%;
+            left: 450px;
+        }
+        @media screen and (max-width: 420px){
+            .test{
+                width: 100vw;
+                height: 100vh;
+            }
+            .test .border{
+                width: 90vw;
+                height: 95vh
+            }
+            body button.numberChange, body button.one{
+                bottom: 10vh;
+            }
+             body button.one{
+                left: 1vw;
+             }
+             body button.showImg{
+                bottom: 3vh;
+                left: 1vw;
+            }
+            .dL{
+                bottom: 3vh;
+                left: 50vw;
+            }
+            h4{
+                left: 2vw;
+                bottom: 0vh;
+            }
         }
     </style>
 </head>
@@ -143,7 +173,7 @@
     <button class="numberChange">点我改变号码</button>
     <button class="one">点我回到1</button>
     <button class="showImg">隐藏logo</button>
-    <h4>提示: logo可以随意移动，鼠标按下即可拖动</h4>
+    <h4>提示: logo可以移动，(PC端)鼠标按下即可拖动</h4>
     <!-- <script type="text/javascript" src="./js/jquery.js"></script> -->
     <script type="text/javascript" src="./js/html2canvas.min.js"></script>
     <script>
