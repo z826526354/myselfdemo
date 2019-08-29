@@ -79,7 +79,7 @@ money.onclick = function (e) {
     wrapUl.style.opacity = 0;
     wrapUl.innerHTML = null;
     Oi.innerText = "信息加载失败，请填写完整！！";
-    tip.style.top = '30px';
+    tip.style.top = '40%';
     spanBtn.onclick = function () {
       tip.style.top = '-240px';
     }
@@ -88,7 +88,7 @@ money.onclick = function (e) {
       showPerson(data);
     }else {
       Oi.innerText = "信息加载失败，请正确填写号码！！";
-      tip.style.top = '30px';
+      tip.style.top = '40%';
       wrapUl.style.opacity = 0;
       wrapUl.innerHTML = null;
       spanBtn.onclick = function () {
@@ -118,7 +118,7 @@ function showPerson(data) {
 btn.onclick = function () {
   if (getName.value == '' || phoneNum.value == '' || address.value == '' || wechat.value == '' || timee.value == '' || concret.value == '') {
     Oi.innerText = "copy失败，请填写完整！！"
-    tip.style.top = '15px';
+    tip.style.top = '40%';
     spanBtn.onclick = function () {
       tip.style.top = '-240px';
     }
@@ -128,7 +128,7 @@ btn.onclick = function () {
       copylike.select();
       document.execCommand("Copy");
       Oi.innerText = "copy成功!！！";
-      tip.style.top = '15px';
+      tip.style.top = '40%';
       setTimeout(() => {
         tip.style.top = '-240px';
         tip.style.opacity = 0;
@@ -137,7 +137,13 @@ btn.onclick = function () {
         tip.style.top = '-240px';
       }
     }else {
-      alert("copy失败，请正确填写号码！！")
+      Oi.innerText = "copy失败，请正确填写号码！！";
+      tip.style.top = '40%';
+      wrapUl.style.opacity = 0;
+      wrapUl.innerHTML = null;
+      spanBtn.onclick = function () {
+        tip.style.top = '-240px';
+      }
     }
   }
 }
