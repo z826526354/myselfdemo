@@ -1,0 +1,128 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: '微软雅黑';
+	list-style: none;
+	text-decoration: none;
+}
+.demo{
+	width: 900px;
+	height: 600px;
+	margin: 20px auto;
+}
+.wrapper{
+	display: inline-block;
+	width: 400px;
+	height: 600px;
+
+	border: 1px solid #2a2a2a;
+	border-radius: 5px;
+}
+form{
+	position: relative;
+	width: 300px;
+	height: 100%;
+	margin: 0 auto;
+}
+p{
+	margin-top: 10px;
+}
+span{
+	display: inline-block;
+	width: 115px;
+	height: 35px;
+	line-height: 35px;
+	text-align-last: justify;
+}
+.btn{
+	width: 100px;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #2d2d2d;
+	transition: all 0.4s;
+	outline: none;
+	background-color: #fff;
+	border-radius: 5px;
+}
+.btn:hover{
+	box-shadow: 0px 0px 20px rgba(0, 130, 255, 0.7); 
+}
+input[type='text']{
+	width: 170px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	text-indent: 1em
+}
+select[name='class']{
+	width: 170px;
+	height: 32px;
+	line-height: 32px;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	background-color:#fff;
+	text-indent: 1em
+}
+input[type='button']{
+	position: absolute;
+	bottom: 27px;
+	right: 4px;
+}
+.money{
+	position: absolute;
+	left: 4px;
+	bottom: 27px;
+	width: 100px;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #2d2d2d;
+	transition: all 0.4s;
+	outline: none;
+	background-color: #fff;
+	border-radius: 5px;
+}
+.money:hover{
+	box-shadow: 0px 0px 20px rgba(0, 130, 255, 0.7); 
+}
+
+.wrapUl{
+	display: inline-block;
+	border: 1px solid #f40;
+	width: 400px;
+	border-radius: 5px;
+	text-align: center;
+}
+.list{
+	width: 380px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.copylike{
+	opacity: 0;
+	width: 0;
+	height:0;
+}
+img{
+	width: 150px;
+	height:200px;
+}
+@media screen and (max-width: 400px) {
+	div.wrapper{
+		width: 100vw;
+		height: 90vh;
+		border: none;
+	}
+	form{
+		width: 80vw;
+		margin: 0 auto;
+	}
+	.wrapUl{
+		display: block;
+		border:none;
+		border-top: #aaa;
+	}
+}
