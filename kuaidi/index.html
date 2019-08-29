@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: '微软雅黑';
+			list-style: none;
+			text-decoration: none;
+		}
+		.demo{
+			width: 900px;
+			height: 600px;
+			margin: 20px auto;
+		}
+		.wrapper{
+			display: inline-block;
+			width: 400px;
+			height: 600px;
+
+			border: 1px solid #2a2a2a;
+			border-radius: 5px;
+		}
+		form{
+			position: relative;
+			width: 300px;
+			height: 100%;
+			margin: 0 auto;
+		}
+		p{
+			margin-top: 10px;
+		}
+		span{
+			display: inline-block;
+			width: 115px;
+			height: 35px;
+			line-height: 35px;
+			text-align-last: justify;
+		}
+		.btn{
+			width: 100px;
+			text-align: center;
+			height: 35px;
+			line-height: 35px;
+			border: 1px solid #2d2d2d;
+			transition: all 0.4s;
+			outline: none;
+			background-color: #fff;
+			border-radius: 5px;
+		}
+		.btn:hover{
+			box-shadow: 0px 0px 20px rgba(0, 130, 255, 0.7); 
+		}
+		input[type='text']{
+			width: 170px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid #aaa;
+			border-radius: 4px;
+			text-indent: 1em
+		}
+		select[name='class']{
+			width: 170px;
+			height: 32px;
+			line-height: 32px;
+			border: 1px solid #aaa;
+			border-radius: 4px;
+			background-color:#fff;
+			text-indent: 1em
+		}
+		input[type='button']{
+			position: absolute;
+			bottom: 27px;
+			right: 4px;
+		}
+		.money{
+			position: absolute;
+			left: 4px;
+			bottom: 27px;
+			width: 100px;
+			text-align: center;
+			height: 35px;
+			line-height: 35px;
+			border: 1px solid #2d2d2d;
+			transition: all 0.4s;
+			outline: none;
+			background-color: #fff;
+			border-radius: 5px;
+		}
+		.money:hover{
+			box-shadow: 0px 0px 20px rgba(0, 130, 255, 0.7); 
+		}
+		
+		.wrapUl{
+			display: inline-block;
+			border: 1px solid #f40;
+			width: 400px;
+			border-radius: 5px;
+			text-align: center;
+		}
+		.list{
+			width: 380px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		.copylike{
+			opacity: 0;
+			width: 0;
+			height:0;
+		}
+		img{
+			width: 150px;
+			height:200px;
+		}
+		@media screen and (max-width: 400px) {
+			div.wrapper{
+				width: 100vw;
+				height: 90vh;
+				border: none;
+			}
+			form{
+				width: 80vw;
+				margin: 0 auto;
+			}
+			.wrapUl{
+				display: block;
+				border:none;
+				border-top: #aaa;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="demo">
+		<div class="wrapper">
+			<form method="post" action="">
+				<p>
+					<span>收货姓名：</span>
+					<input name="getName" class="getName" type="text" placeholder="请输入姓名">
+				</p>
+				<p>
+					<span>收货电话号码：</span>
+					<input name="phoneNum" class="phoneNum" type="text" placeholder="请输入电话号码">
+				</p>
+				<p>
+					<span>本人收货地址：</span>
+					<input name="address" class="address" type="text" placeholder="请输入详细地址如：B5 608">
+				</p>
+				<p>
+					<span>微信号：</span>
+					<input name="wechat" class="wechat" type="text" placeholder="请输入微信号">
+				</p>
+				<p>
+					<span>能收货的时间：</span>
+					<input name="timee" class="timee" type="text" placeholder="请输入时间如：18:00">
+				</p>
+				
+				<p>
+					<span>**快递类别：</span>
+					<select name="class" id="clas">
+						<option value="文具">文具</option>
+						<option value="电子产品">电子产品</option>
+						<option value="女性用品">女性用品</option>
+						<option value="体育用具">体育用具</option>
+						<option value="生活用品">生活用品</option>
+						<option value="易碎用品">易碎用品</option>
+						<option value="其他">其他</option>
+					</select>
+					<p>
+						<span>**具体物品：</span>
+						<input name="concret" class="concret" type="text" placeholder="物品详情如：杯子">
+					</p>
+				</p>
+				<img src="./img/123.png" alt="">
+				<button type="button" class="money">生成信息</button>
+				<input type="button" class="btn" value="点击复制信息">
+			</form>
+		</div>
+		<ul class="wrapUl"></ul>
+	</div>
+	
+
+	<textarea class="copylike"></textarea >
+	<script>
+		var getName = document.getElementsByClassName('getName')[0];
+		var phoneNum = document.getElementsByClassName('phoneNum')[0];
+		var address = document.getElementsByClassName('address')[0];
+		var wechat = document.getElementsByClassName('wechat')[0];
+		var timee = document.getElementsByClassName('timee')[0];
+		var clas = document.getElementById('clas');
+		var concret = document.getElementsByClassName('concret')[0];
+		var btn = document.getElementsByClassName('btn')[0];
+		var body = document.getElementsByTagName('body')[0];
+		var money = document.getElementsByClassName('money')[0];
+		var wrapUl = document.getElementsByClassName('wrapUl')[0];
+		var change = document.getElementsByClassName('change')[0];
+		var result = document.getElementsByClassName('result')[0];
+		var copylike = document.getElementsByClassName('copylike')[0];
+		var str = '',
+			strcopy = '',
+			arr,
+			newArr;
+		var locked = 1;
+		wrapUl.style.opacity = 0;
+
+		function ajaxFun(method, url, data, callback, flag) {
+            var xhr = null;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            }else {
+                xhr = new ActiveXObject('Microsoft.XMLHttp')
+                // 兼容IE
+            }
+            
+            method = method.toUpperCase();
+            // 兼容get/post大小写
+            if (method == 'GET') {
+                xhr.open('GET', url + '?' + data, flag);
+                xhr.send();
+            }else if (method == 'POST') {
+                xhr.open('POST', url, flag);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+                xhr.send(data);
+                // 兼容 GET 和 POST 请求
+            }
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        callback(xhr.responseText);
+                    }
+                }
+            }
+        }
+        
+        
+	    getName.onchange = function () {
+        	if (locked % 2 != 1) {
+        		str = '';
+	        	locked ++;
+        	}
+	    }
+	    phoneNum.onchange = function () {
+	    	if (locked % 2 != 1) {
+        		str = '';
+	        	locked ++;
+        	}
+	    }
+	    address.onchange = function () {
+	    	if (locked % 2 != 1) {
+        		str = '';
+	        	locked ++;
+        	}
+	    }
+	    wechat.onchange = function () {
+	    	if (locked % 2 != 1) {
+        		str = '';
+	        	locked ++;
+        	}
+	    }
+	    timee.onchange = function () {
+	    	if (locked % 2 != 1) {
+        		str = '';
+	        	locked ++;
+        	}
+	    }
+	    clas.onselect = function () {
+	    	if (locked % 2 != 1) {
+        		str = '';
+	        	locked ++;
+        	}
+	    }
+	    concret.onchange = function () {
+	    	if (locked % 2 != 1) {
+        		str = '';
+	        	locked ++;
+        	}
+	    }
+	   	
+
+
+	    money.onclick = function (e) {
+            e.preventDefault();
+            var data = 'getName=' + getName.value + '&phoneNum=' + phoneNum.value + '&address=' + address.value + '&wechat=' + wechat.value + '&timee=' + timee.value + '&clas=' + clas.value + '&concret=' + concret.value ;
+
+            ajaxFun('POST', './data/post.php', data, showPerson, true);
+            
+        }
+
+
+        function showPerson(data) {
+            arr = new Set(data.split(','))
+            newArr = [...arr];
+            if (locked % 2 == 1) {
+            	newArr.forEach(function(ele){
+	            	str += '<li class="list">' + ele + '</li>';
+	            	strcopy += ' ' + ele + ';'
+	            })
+	            locked++;
+            }
+            wrapUl.style.opacity = 1;
+            wrapUl.innerHTML = str;
+            copylike.innerHTML = strcopy;
+        }
+        btn.onclick = function () {
+        	if (locked % 2 != 1) {
+        		console.log(newArr);
+        		copylike.select();
+        		document.execCommand("Copy");
+        		alert('复制成功, 赶快联系管理员估价吧')
+        	}
+        	locked++;
+        	
+        }
+	</script>
+</body>
+</html>
