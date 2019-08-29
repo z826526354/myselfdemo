@@ -12,119 +12,129 @@ var wrapUl = document.getElementsByClassName('wrapUl')[0];
 var change = document.getElementsByClassName('change')[0];
 var result = document.getElementsByClassName('result')[0];
 var copylike = document.getElementsByClassName('copylike')[0];
+var tip = document.getElementsByClassName('tip')[0];
+var Oi = document.getElementsByTagName('i')[0];
+var spanBtn = document.getElementsByClassName('spanBtn')[0];
 var str = '',
 strcopy = '',
 arr,
 newArr;
 var locked = 1;
+var reg = /^1(3|4|5|6|7|8|9)\d{9}$/;
 wrapUl.style.opacity = 0;
 
-function ajaxFun(method, url, data, callback, flag) {
-    var xhr = null;
-    if (window.XMLHttpRequest) {
-        xhr = new XMLHttpRequest();
-    }else {
-        xhr = new ActiveXObject('Microsoft.XMLHttp')
-                // 兼容IE
-    }
-    
-    method = method.toUpperCase();
-    // 兼容get/post大小写
-    if (method == 'GET') {
-        xhr.open('GET', url + '?' + data, flag);
-        xhr.send();
-    }else if (method == 'POST') {
-        xhr.open('POST', url, flag);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-        xhr.send(data);
-        // 兼容 GET 和 POST 请求
-    }
-    
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                callback(xhr.responseText);
-            }
-        }
-    }
-}
-        
-        
+
+
+
 getName.onchange = function () {
 	if (locked % 2 != 1) {
 		str = '';
-      locked ++;
+    locked ++;
   }
 }
 phoneNum.onchange = function () {
   if (locked % 2 != 1) {
-      str = '';
-      locked ++;
+    str = '';
+    locked ++;
   }
 }
 address.onchange = function () {
   if (locked % 2 != 1) {
-      str = '';
-      locked ++;
+    str = '';
+    locked ++;
   }
 }
 wechat.onchange = function () {
   if (locked % 2 != 1) {
-      str = '';
-      locked ++;
+    str = '';
+    locked ++;
   }
 }
 timee.onchange = function () {
   if (locked % 2 != 1) {
-      str = '';
-      locked ++;
+    str = '';
+    locked ++;
   }
 }
 clas.onselect = function () {
   if (locked % 2 != 1) {
-      str = '';
-      locked ++;
+    str = '';
+    locked ++;
   }
 }
 concret.onchange = function () {
   if (locked % 2 != 1) {
-      str = '';
-      locked ++;
+    str = '';
+    locked ++;
   }
 }
 
 
 
 money.onclick = function (e) {
-    e.preventDefault();
-    var data = 'getName=' + getName.value + '&phoneNum=' + phoneNum.value + '&address=' + address.value + '&wechat=' + wechat.value + '&timee=' + timee.value + '&clas=' + clas.value + '&concret=' + concret.value ;
-
-    ajaxFun('GET','./data/post.php', '', showPerson, true);
-
+  e.preventDefault();
+  console.log(111)
+  var data = '收货姓名：' + getName.value + ', 收货电话号码：' + phoneNum.value + ', 本人收货地址：' + address.value +', 微信号：' + wechat.value + ' , 能收货的时间：' + timee.value + ', **快递类别：' + clas.value + ', **具体物品：' + concret.value;
+  if (getName.value == '' || phoneNum.value == '' || address.value == '' || wechat.value == '' || timee.value == '' || concret.value == '') {
+    wrapUl.style.opacity = 0;
+    wrapUl.innerHTML = null;
+    Oi.innerText = "信息加载失败，请填写完整！！";
+    tip.style.top = '15px';
+    spanBtn.onclick = function () {
+      tip.style.top = '-210px';
+    }
+  }else{
+    if (reg.test(phoneNum.value)) {
+      showPerson(data);
+    }else {
+      Oi.innerText = "信息加载失败，请正确填写号码！！";
+      tip.style.top = '15px';
+      wrapUl.style.opacity = 0;
+      wrapUl.innerHTML = null;
+      spanBtn.onclick = function () {
+        tip.style.top = '-210px';
+      }
+    }
+    
+  }
+  
 }
 
 
 function showPerson(data) {
-    arr = new Set(data.split(','))
-    newArr = [...arr];
-    if (locked % 2 == 1) {
-        newArr.forEach(function(ele){
-            str += '<li class="list">' + ele + '</li>';
-            strcopy += ' ' + ele + ';'
-        })
-        locked++;
-    }
-    wrapUl.style.opacity = 1;
-    wrapUl.innerHTML = str;
-    copylike.innerHTML = strcopy;
+  arr = new Set(data.split(','))
+  newArr = [...arr];
+  if (locked % 2 == 1) {
+    newArr.forEach(function(ele){
+      str += '<li class="list">' + ele + '</li>';
+      strcopy += ' ' + ele + ';'
+    })
+    locked++;
+  }
+  wrapUl.style.opacity = 1;
+  wrapUl.innerHTML = str;
+  copylike.innerHTML = strcopy;
 }
 btn.onclick = function () {
-        if (locked % 2 != 1) {
-        console.log(newArr);
-        copylike.select();
-        document.execCommand("Copy");
-        alert('复制成功, 赶快联系管理员估价吧')
+  if (getName.value == '' || phoneNum.value == '' || address.value == '' || wechat.value == '' || timee.value == '' || concret.value == '') {
+    Oi.innerText = "copy失败，请填写完整！！"
+    tip.style.top = '15px';
+    spanBtn.onclick = function () {
+      tip.style.top = '-210px';
     }
-    locked++;
-
+  } else {
+    if (reg.test(phoneNum.value)) {
+      console.log(newArr);
+      copylike.select();
+      document.execCommand("Copy");
+    }else {
+      Oi.innerText = "copy失败，请正确填写号码！！";
+      tip.style.top = '15px';
+      wrapUl.style.opacity = 0;
+      wrapUl.innerHTML = null;
+      spanBtn.onclick = function () {
+        tip.style.top = '-210px';
+      }
+    }
+  }
 }
