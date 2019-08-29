@@ -99,7 +99,7 @@ money.onclick = function (e) {
     e.preventDefault();
     var data = 'getName=' + getName.value + '&phoneNum=' + phoneNum.value + '&address=' + address.value + '&wechat=' + wechat.value + '&timee=' + timee.value + '&clas=' + clas.value + '&concret=' + concret.value ;
 
-    ajaxFun('POST', './data/post.php', data, showPerson, true);
+    ajaxFun('GET','./data/post.php', '', showPerson, true);
 
 }
 
