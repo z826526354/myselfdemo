@@ -13,7 +13,7 @@ var change = document.getElementsByClassName('change')[0];
 var result = document.getElementsByClassName('result')[0];
 var copylike = document.getElementsByClassName('copylike')[0];
 var tip = document.getElementsByClassName('tip')[0];
-var Oi = document.getElementsByTagName('i')[0];
+var Oi = document.getElementsByClassName('tipi')[0];
 var spanBtn = document.getElementsByClassName('spanBtn')[0];
 var str = '',
 strcopy = '',
@@ -120,21 +120,24 @@ btn.onclick = function () {
     Oi.innerText = "copy失败，请填写完整！！"
     tip.style.top = '15px';
     spanBtn.onclick = function () {
-      tip.style.top = '-210px';
+      tip.style.top = '-240px';
     }
   } else {
     if (reg.test(phoneNum.value)) {
       console.log(newArr);
       copylike.select();
       document.execCommand("Copy");
-    }else {
-      Oi.innerText = "copy失败，请正确填写号码！！";
+      Oi.innerText = "copy成功!！！";
       tip.style.top = '15px';
-      wrapUl.style.opacity = 0;
-      wrapUl.innerHTML = null;
+      setTimeout(() => {
+        tip.style.top = '-240px';
+        tip.style.opacity = 0;
+      }, 3000)
       spanBtn.onclick = function () {
-        tip.style.top = '-210px';
+        tip.style.top = '-240px';
       }
+    }else {
+      alert("copy失败，请正确填写号码！！")
     }
   }
 }
