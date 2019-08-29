@@ -79,20 +79,20 @@ money.onclick = function (e) {
     wrapUl.style.opacity = 0;
     wrapUl.innerHTML = null;
     Oi.innerText = "信息加载失败，请填写完整！！";
-    tip.style.top = '15px';
+    tip.style.top = '30px';
     spanBtn.onclick = function () {
-      tip.style.top = '-210px';
+      tip.style.top = '-240px';
     }
   }else{
     if (reg.test(phoneNum.value)) {
       showPerson(data);
     }else {
       Oi.innerText = "信息加载失败，请正确填写号码！！";
-      tip.style.top = '15px';
+      tip.style.top = '30px';
       wrapUl.style.opacity = 0;
       wrapUl.innerHTML = null;
       spanBtn.onclick = function () {
-        tip.style.top = '-210px';
+        tip.style.top = '-240px';
       }
     }
     
