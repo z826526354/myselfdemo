@@ -176,7 +176,7 @@ img{
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7)
 }
 footer{
-
+	margin: 0 auto;
 	width: 1000px;
 	height: 50px;
 	background-color: #aaa;
@@ -203,6 +203,7 @@ footer{
 	}
 	.wrapUl{
 		/*display: block;*/
+		margin-top: 50px;
 		border:none;
 		border-top: #aaa;
 	}
@@ -245,6 +246,7 @@ footer{
 	}
 	.wrapUl{
 		/*display: block;*/
+		margin-top: 50px;
 		border:none;
 		border-top: #aaa;
 	}
@@ -288,6 +290,7 @@ footer{
 	}
 	.wrapUl{
 		/*display: block;*/
+		margin-top: 50px;
 		border:none;
 		border-top: #aaa;
 	}
@@ -303,11 +306,11 @@ footer{
 		width: 100vw;
 	}
 	button.money{
-		bottom: 40px;
+		bottom: 70px;
 		left: 170px;
 	}
 	input[type='button']{
-		bottom: -35px;
+		bottom: 10px;
 		left: 170px;
 	}
 }
@@ -346,11 +349,11 @@ footer{
 		width: 100vw;
 	}
 	button.money{
-		bottom: 40px;
+		bottom: 70px;
 		left: 170px;
 	}
 	input[type='button']{
-		bottom: -35px;
+		bottom: 10px;
 		left: 170px;
 	}
 }
@@ -389,11 +392,11 @@ footer{
 		width: 100vw;
 	}
 	button.money{
-		bottom: 40px;
+		bottom: 70px;
 		left: 170px;
 	}
 	input[type='button']{
-		bottom: -35px;
+		bottom: 10px;
 		left: 170px;
 	}
 }
